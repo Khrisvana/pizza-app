@@ -12,3 +12,24 @@
 .button-primary {
   @apply bg-orange-500 hover:bg-orange-700 text-white;
 }
+
+.h1 {
+  @apply text-4xl font-bold text-orange-500 mb-3;
+}
+
+.h5 {
+  @apply text-lg font-bold text-gray-600 mb-3;
+}
+
+.form-check {
+  @apply flex gap-1 items-center;
+}
+
+.form-radio {
+  width: 1rem;
+  height: 1rem;
+}
+
+.form-radio:checked {
+  accent-color: red;
+}
