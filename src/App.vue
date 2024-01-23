@@ -12,7 +12,10 @@ type Pizza = {
 	id: number
 	name: string
 	price: number
-	discount: Object
+	discount: {
+		is_active: boolean,
+		final_price: number
+	}
 	toppings: Array<number>
 }
 
@@ -35,8 +38,8 @@ type FormInputs = {
 }
 
 const inputs: Ref<FormInputs> = ref({
-	pizza: 0,
-	size: 0,
+	pizza: 1,
+	size: 1,
 	toppings: []
 })
 
@@ -44,14 +47,36 @@ const pizza: Pizza[] = PizzaList.data
 const sizes: Size[] = SizeList.data
 const toppings: Topping[] = ToppingList.data
 
-const availableTopping = computed(() => {
-	let filteredPizza: Pizza[] = pizza.filter((item) => item.id == inputs.value.pizza)
-	
-	if (filteredPizza.length <= 0) {
-		return []
-	}
+const toppingSummary = computed(() => {
+	return toppings.filter((item) => {
+		return inputs.value.toppings.includes(item.id)
+	})
+})
 
-	return filteredPizza[0].toppings
+const totalPrice = computed(() => {
+	let filteredPizza: Pizza = pizza.filter((item) => item.id == inputs.value.pizza)[0] ?? []
+	let filteredSize: Size = sizes.filter((item) => item.id == inputs.value.size)[0] ?? []
+	let toppingTotal: number = toppingSummary.value.reduce((accumulator, value) => {
+		return accumulator + value.price
+	}, 0)
+
+	let total = filteredPizza.discount.is_active ? filteredPizza.discount.final_price : filteredPizza.price
+
+	total += filteredSize.extra_price + toppingTotal
+
+	return {
+		raw: total,
+		formatted: new Intl.NumberFormat('en-US', {
+			style: 'currency',
+			currency: 'USD'
+		}).format(total)
+	} 
+})
+
+const availableTopping = computed(() => {
+	let filteredPizza: Pizza = pizza.filter((item) => item.id == inputs.value.pizza)[0] ?? []
+
+	return filteredPizza.toppings
 })
 
 const formatSizeName = (name: string, price: number) => {
@@ -67,6 +92,7 @@ const formatSizeName = (name: string, price: number) => {
 
 watch(() => inputs.value.pizza, (value) => {
   inputs.value.toppings = []
+  inputs.value.size = 1
 }, { deep : true})
 
 
@@ -100,7 +126,7 @@ onMounted(() => {
 						class="form-radio"
 						v-model="inputs.size"
 					/>
-					<label :for="`radioman-${size.id}`">{{
+					<label class="cursor-pointer" :for="`radioman-${size.id}`">{{
 						formatSizeName(size.name, size.extra_price)
 					}}</label>
 				</div>
@@ -121,7 +147,7 @@ onMounted(() => {
 			Card Here
 			<pre>
 				{{ inputs }}
-				{{ availableTopping }}
+				{{ totalPrice.formatted }}
 			</pre
 			>
 		</div>

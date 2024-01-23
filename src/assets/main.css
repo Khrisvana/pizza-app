@@ -14,7 +14,7 @@
 }
 
 .button-outline-primary {
-  @apply bg-transparent hover:bg-orange-200 focus:bg-orange-200 hover:text-orange-500 focus:text-orange-500 border border-orange-500;
+  @apply bg-transparent hover:bg-orange-200 hover:text-orange-500 border border-orange-500;
 }
 
 .button-outline-primary--active {

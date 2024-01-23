@@ -26,7 +26,7 @@ const getImage = ((name: string) => {
 <template>
 	<label
 		:for="`pizza-${pizza.id}`"
-		class="pizza-container"
+		class="pizza-container cursor-pointer"
 		:class="{ 'pizza-container-active': model == pizza.id }"
 	>
 		<img :src="getImage(pizza.name)" :alt="pizza.name" class="pizza-image"/>
