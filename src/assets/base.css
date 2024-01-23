@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --transition-time: 0.2s;
+}
+
 body {
   min-height: 100vh;
   transition:

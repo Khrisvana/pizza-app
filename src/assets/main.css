@@ -6,11 +6,23 @@
 
 
 .button {
-  @apply font-bold px-3 py-2 rounded;
+  @apply font-bold px-3 py-2;
 }
 
 .button-primary {
   @apply bg-orange-500 hover:bg-orange-700 text-white;
+}
+
+.button-outline-primary {
+  @apply bg-transparent hover:bg-orange-200 focus:bg-orange-200 hover:text-orange-500 focus:text-orange-500 border border-orange-500;
+}
+
+.button-outline-primary--active {
+  @apply bg-orange-200 text-orange-500;
+}
+
+.button-outline-primary--disabled {
+  @apply bg-gray-200 text-gray-400 border-0 hover:bg-gray-200 hover:text-gray-400 focus:bg-gray-200 focus:text-gray-400;
 }
 
 .h1 {
