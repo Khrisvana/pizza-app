@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, type Ref, ref } from 'vue';
 import { priceFormat, numberFormat } from '@/utils/numberFormats';
 import type { Topping } from 'types';
+
+import Modal from '@/components/Modal.vue'
 
 const props = defineProps({
     pizza: {
@@ -17,6 +19,8 @@ const props = defineProps({
         default: []
     }
 })
+
+const modal: any = ref(null)
 
 const totalPrice = computed(() => {
 	let toppingTotal: number = props.toppingSummary.reduce((accumulator, value) => {
@@ -35,7 +39,7 @@ const totalPrice = computed(() => {
 </script>
 
 <template>
-    <div class="w-80">
+    <div class="w-80 grow">
         <div class="bg-white rounded-xl p-6 shadow">
             <h5 class="h5 text-amber-600">Payment Summary</h5>
             <div class="p-2">
@@ -58,9 +62,10 @@ const totalPrice = computed(() => {
                 <h5 class="h5 text-amber-600">{{ totalPrice.formatted }}</h5>
             </div>
 
-            <button class="button button-primary w-full rounded-full">
+            <button class="button button-primary w-full rounded-full" @click="modal!.isOpen = true">
                 Order Now
             </button>
         </div>
     </div>
+	<Modal ref="modal"/>
 </template>

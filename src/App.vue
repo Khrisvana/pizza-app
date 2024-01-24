@@ -71,10 +71,10 @@ onMounted(() => {
 			<h1 class="h1 text-amber-600 !mb-0">Pizza order</h1>
 		</div>
 	</div>
-	<div class="container flex flex-wrap gap-6 justify-center mx-auto">
+	<div class="container flex gap-6 justify-center mx-auto flex-wrap lg:flex-nowrap">
 		<div class="grow">
 			<h2 class="h2 text-amber-600">Choose your pizza</h2>
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
 				<PizzaInput
 					:pizza="item"
 					v-model="inputs.pizza"
@@ -82,7 +82,7 @@ onMounted(() => {
 					:key="item.id"
 				/>
 			</div>
-			<h1 class="h1 text-amber-600">Custom Pizza</h1>
+			<h2 class="h2 text-amber-600">Custom Pizza</h2>
 
 			<h5 class="h5 text-gray-600">Size</h5>
 			<div class="flex flex-wrap gap-3 mb-5">
@@ -120,6 +120,6 @@ onMounted(() => {
 .hero {
 	background-image: url('/hero.png');
 	height: 738px;
-	@apply w-full flex flex-col max-h-screen;
+	@apply w-full flex flex-col max-h-screen mb-24;
 }
 </style>
