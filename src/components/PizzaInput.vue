@@ -66,12 +66,12 @@ const getImage = (name: string) => {
 
 <style scoped>
 .pizza-container {
-	@apply relative rounded-xl hover:bg-orange-200 py-5 px-10 gap-6 border flex items-center justify-items-center hover:border-orange-200;
+	@apply relative rounded-xl hover:bg-orange-300 py-5 px-10 gap-6 border flex items-center justify-items-center hover:border-orange-300 shadow-sm;
 	transition: all var(--transition-time);
 }
 
 .pizza-container-active {
-	@apply bg-orange-400 hover:bg-orange-400 text-white border-orange-400 hover:border-orange-400;
+	@apply bg-orange-500 hover:bg-orange-500 text-white border-orange-500 hover:border-orange-500;
 }
 
 .pizza-image {

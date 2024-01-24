@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
 const scrollHeight = ref(0)
 const navBarOpen = ref(false)
@@ -9,16 +9,20 @@ onMounted(() => {
 		scrollHeight.value = window.scrollY
 	})
 })
+
+const logo = computed(() => {
+	return scrollHeight.value >= 700 ? '/logo-alt.svg' : '/logo.svg'
+})
 </script>
 
 <template>
-	<nav class="fixed w-full mx-auto px-3 md:px-0" :class="{ 'bg-white': scrollHeight >= 700 }">
+	<nav class="fixed w-full mx-auto px-3 md:px-0 z-20" :class="{ 'bg-white shadow': scrollHeight >= 700 }">
 		<div class="container mx-auto flex justify-between items-center py-3">
-			<img src="/logo.svg" alt="Food Now Logo" />
+			<img :src="logo" alt="Food Now Logo" class="h-10"/>
 			<button
 				@click="navBarOpen = !navBarOpen"
 				type="button"
-				class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+				class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-amber-600 rounded-lg md:hidden hover:bg-amber-200"
 			>
 				<svg
 					class="w-5 h-5"
@@ -51,7 +55,7 @@ onMounted(() => {
 				:class="{ 'text-white': scrollHeight < 700, 'text-black': scrollHeight >= 700 }"
 			>
 				<a class="font-bold" href="#">Login</a>
-				<a href="#" class="button button-primary rounded-full !px-6">Register</a>
+				<a href="#" class="button button-primary rounded-full !px-6 !text-white">Register</a>
 			</div>
 		</div>
 		<div
@@ -64,7 +68,7 @@ onMounted(() => {
 			<a class="hover:bg-gray-200 rounded-lg font-bold px-3 py-2" href="#">Blog</a>
 			<a class="hover:bg-gray-200 rounded-lg font-bold px-3 py-2" href="#">Contact Us</a>
 			<a class="hover:bg-gray-200 rounded-lg font-bold px-3 py-2" href="#">Login</a>
-			<a href="#" class="button button-primary rounded-full !px-6 text-center">Register</a>
+			<a href="#" class="button button-primary rounded-full !px-6 text-center !text-white">Register</a>
 		</div>
 	</nav>
 </template>

@@ -9,6 +9,7 @@ import SizeList from './assets/json/size-list.json'
 import ToppingList from './assets/json/topping-list.json'
 
 import Navbar from './components/Navbar.vue'
+import Footer from './components/Footer.vue'
 import PizzaInput from './components/PizzaInput.vue'
 import ToppingInput from './components/ToppingInput.vue'
 import PriceSummary from './components/PriceSummary.vue'
@@ -71,7 +72,7 @@ onMounted(() => {
 			<h1 class="h1 text-amber-600 !mb-0 text-center">Pizza order</h1>
 		</div>
 	</div>
-	<div class="container flex gap-6 justify-center mx-auto flex-wrap lg:flex-nowrap px-3 md:px-0">
+	<div class="container lg:!px-3 flex gap-6 justify-center mx-auto flex-wrap lg:flex-nowrap px-3 md:px-0">
 		<div class="grow">
 			<h2 class="h2 text-amber-600">Choose your pizza</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
@@ -114,6 +115,7 @@ onMounted(() => {
 		</div>
 		<PriceSummary :pizza="selectedPizza" :size="selectedSize" :topping-summary="toppingSummary"/>
 	</div>
+	<Footer/>
 </template>
 
 <style scoped>

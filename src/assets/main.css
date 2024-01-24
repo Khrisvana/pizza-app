@@ -4,52 +4,70 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.button {
-  @apply font-bold px-3 py-2.5;
+@layer base {
+  a {
+    @apply hover:text-amber-600;
+  }  
 }
 
-.button-primary {
-  @apply bg-orange-500 hover:bg-orange-700 text-white;
+@layer components {
+  .button {
+    @apply font-bold px-3 py-2.5;
+  }
+  
+  .button-primary {
+    @apply bg-orange-500 hover:bg-orange-700 text-white;
+  }
+  
+  .button-outline-primary {
+    @apply bg-transparent hover:text-amber-600 border border-orange-500;
+  }
+  
+  .button-outline-primary--active {
+    @apply bg-orange-200 text-amber-600;
+  }
+  
+  .button-outline-primary--disabled {
+    @apply bg-gray-200 text-gray-400 border-0 hover:bg-gray-200 hover:text-gray-400 focus:bg-gray-200 focus:text-gray-400;
+  }
+  
+  .h1 {
+    @apply text-6xl font-bold mb-3;
+  }
+  
+  .h2 {
+    @apply text-4xl font-bold mb-3;
+  }
+  
+  .h4 {
+    @apply text-2xl font-bold mb-3;
+  }
+  
+  .h5 {
+    @apply text-xl font-bold mb-3;
+  }
+  
+  .form-check {
+    @apply flex gap-1 items-center;
+  }
+  
+  .form-radio {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .form-radio:checked {
+    accent-color: red;
+  }
 }
 
-.button-outline-primary {
-  @apply bg-transparent hover:bg-orange-200 hover:text-amber-500 border border-orange-500;
+
+.social-media {
+  width: 40px;
+  height: 40px;
+  @apply button button-outline-primary hover:bg-orange-200 rounded-full flex items-center justify-center;
 }
 
-.button-outline-primary--active {
-  @apply bg-orange-200 text-amber-500;
-}
-
-.button-outline-primary--disabled {
-  @apply bg-gray-200 text-gray-400 border-0 hover:bg-gray-200 hover:text-gray-400 focus:bg-gray-200 focus:text-gray-400;
-}
-
-.h1 {
-  @apply text-8xl font-bold mb-3;
-}
-
-.h2 {
-  @apply text-5xl font-bold mb-3;
-}
-
-.h4 {
-  @apply text-2xl font-bold mb-3;
-}
-
-.h5 {
-  @apply text-lg font-bold mb-3;
-}
-
-.form-check {
-  @apply flex gap-1 items-center;
-}
-
-.form-radio {
-  width: 1rem;
-  height: 1rem;
-}
-
-.form-radio:checked {
-  accent-color: red;
+.social-media img {
+  height: 16px;
 }
