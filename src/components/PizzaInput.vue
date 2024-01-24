@@ -102,4 +102,3 @@ const getImage = (name: string) => {
 	rotate: 15deg;
 }
 </style>
-@/utils/numberFormats

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { priceFormat, numberFormat } from '@/utils/numberFormats';
-import type { Topping } from '@/types';
+import type { Topping } from 'types';
 
 const props = defineProps({
     pizza: {
@@ -37,7 +37,7 @@ const totalPrice = computed(() => {
 <template>
     <div class="w-80">
         <div class="bg-white rounded-xl p-6 shadow">
-            <h5 class="h5 text-orange-600">Payment Summary</h5>
+            <h5 class="h5 text-amber-600">Payment Summary</h5>
             <div class="p-2">
                 <div class="flex gap-3 justify-between w-full mb-3">
                     <p class="text-gray-600">{{ pizza.name }}</p>
@@ -55,7 +55,7 @@ const totalPrice = computed(() => {
             <hr>
             <div class="flex gap-3 justify-between w-full my-4">
                 <h5 class="h5 !font-normal text-gray-600">Total Price</h5>
-                <h5 class="h5 text-orange-600">{{ totalPrice.formatted }}</h5>
+                <h5 class="h5 text-amber-600">{{ totalPrice.formatted }}</h5>
             </div>
 
             <button class="button button-primary w-full rounded-full">
@@ -63,4 +63,4 @@ const totalPrice = computed(() => {
             </button>
         </div>
     </div>
-</template>@/utils/numberFormats
+</template>

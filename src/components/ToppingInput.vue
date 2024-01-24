@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { watch } from 'vue';
-
 let model = defineModel<number[]>({ required: true })
 
 const props = defineProps({

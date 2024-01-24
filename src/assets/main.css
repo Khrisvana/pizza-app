@@ -14,11 +14,11 @@
 }
 
 .button-outline-primary {
-  @apply bg-transparent hover:bg-orange-200 hover:text-orange-500 border border-orange-500;
+  @apply bg-transparent hover:bg-orange-200 hover:text-amber-500 border border-orange-500;
 }
 
 .button-outline-primary--active {
-  @apply bg-orange-200 text-orange-500;
+  @apply bg-orange-200 text-amber-500;
 }
 
 .button-outline-primary--disabled {
@@ -26,7 +26,11 @@
 }
 
 .h1 {
-  @apply text-4xl font-bold mb-3;
+  @apply text-8xl font-bold mb-3;
+}
+
+.h2 {
+  @apply text-5xl font-bold mb-3;
 }
 
 .h5 {

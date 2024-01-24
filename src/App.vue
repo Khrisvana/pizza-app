@@ -8,6 +8,7 @@ import PizzaList from './assets/json/pizza-list.json'
 import SizeList from './assets/json/size-list.json'
 import ToppingList from './assets/json/topping-list.json'
 
+import Navbar from './components/Navbar.vue'
 import PizzaInput from './components/PizzaInput.vue'
 import ToppingInput from './components/ToppingInput.vue'
 import PriceSummary from './components/PriceSummary.vue'
@@ -64,9 +65,15 @@ onMounted(() => {
 </script>
 
 <template>
-	<div class="container flex flex-wrap gap-6 justify-center mx-auto px-3">
-		<div>
-			<h1 class="h1 text-orange-600">Choose your pizza</h1>
+	<div class="hero">
+		<Navbar />
+		<div class="grow flex justify-center items-center">
+			<h1 class="h1 text-amber-600 !mb-0">Pizza order</h1>
+		</div>
+	</div>
+	<div class="container flex flex-wrap gap-6 justify-center mx-auto">
+		<div class="grow">
+			<h2 class="h2 text-amber-600">Choose your pizza</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
 				<PizzaInput
 					:pizza="item"
@@ -75,7 +82,7 @@ onMounted(() => {
 					:key="item.id"
 				/>
 			</div>
-			<h1 class="h1 text-orange-600">Custom Pizza</h1>
+			<h1 class="h1 text-amber-600">Custom Pizza</h1>
 
 			<h5 class="h5 text-gray-600">Size</h5>
 			<div class="flex flex-wrap gap-3 mb-5">
@@ -107,4 +114,12 @@ onMounted(() => {
 		</div>
 		<PriceSummary :pizza="selectedPizza" :size="selectedSize" :topping-summary="toppingSummary"/>
 	</div>
-</template>@/utils/numberFormats
+</template>
+
+<style scoped>
+.hero {
+	background-image: url('/hero.png');
+	height: 738px;
+	@apply w-full flex flex-col max-h-screen;
+}
+</style>
