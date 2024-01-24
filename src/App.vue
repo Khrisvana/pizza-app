@@ -65,13 +65,13 @@ onMounted(() => {
 </script>
 
 <template>
+	<Navbar />
 	<div class="hero">
-		<Navbar />
 		<div class="grow flex justify-center items-center">
-			<h1 class="h1 text-amber-600 !mb-0">Pizza order</h1>
+			<h1 class="h1 text-amber-600 !mb-0 text-center">Pizza order</h1>
 		</div>
 	</div>
-	<div class="container flex gap-6 justify-center mx-auto flex-wrap lg:flex-nowrap">
+	<div class="container flex gap-6 justify-center mx-auto flex-wrap lg:flex-nowrap px-3 md:px-0">
 		<div class="grow">
 			<h2 class="h2 text-amber-600">Choose your pizza</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
